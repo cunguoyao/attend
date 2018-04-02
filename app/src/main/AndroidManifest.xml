@@ -41,6 +41,10 @@
         </activity>
         <activity android:name=".ui.MainActivity" android:theme="@style/AppThemeNoTranslucent" android:screenOrientation="portrait"/>
         <activity android:name=".ui.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.StatisticsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.DetailsClassStatisticsActivity" android:screenOrientation="portrait"/>
+
+
         <activity android:name=".ui.RegisterActivity" android:screenOrientation="portrait"/>
         <activity android:name=".ui.PasswordForgetActivity" android:screenOrientation="portrait"/>
         <activity android:name=".ui.PasswordModifyActivity" android:screenOrientation="portrait"/>

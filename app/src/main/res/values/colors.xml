@@ -15,6 +15,7 @@
     <color name="actionsheet_red">#FD4A2E</color>
     <color name="actionsheet_gray">#8F8F8F</color>
 
+    <color name="tk_dark_gray">#4b4b4b</color>
     <color name="status_bar_fragment_mine">#3d3636</color>
     <color name="transparent">#00000000</color>
     <color name="transparent_0a">#0a000000</color>
@@ -40,4 +41,22 @@
     <color name="time_left_color">#F2B772</color>
     <color name="province_line_border">#C7C7C7</color>
     <color name="webview_progress">#3ccaff</color>
+
+    <!-- *的文字颜色 -->
+    <color name="lg_star">#ff0000</color>
+    <color name="bs_orange">#FBDA61</color>
+    <color name="bs_orange1">#F76B1C</color>
+    <color name="bs_rate">#B4ED50</color>
+    <color name="bs_rate1">#429321</color>
+    <color name="bs_crire">#5DD8F9</color>
+    <color name="lineCrie">#d9d9d9</color>
+
+    <color name="darker_gray">#aaa</color>
+    <color name="common_cover_light">#80ffffff</color>
+    <color name="at_gray">#bebebe</color>
+    <!-- zxing scan -->
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <!-- zxing scan end -->
 </resources>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:background="@color/white" 
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+  
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:orientation="vertical"
+             >
+
+            <com.linkage.educloud.js.widget.CircularImage
+            android:id="@+id/user_avater"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            android:src="@drawable/default_user" />
+<!--             <TextView -->
+<!--                 android:id="@+id/item_name1" -->
+<!--                 android:layout_width="47dp" -->
+<!--                 android:layout_height="22dp" -->
+<!--                 android:layout_gravity="center" -->
+<!--                 android:layout_marginTop="-20dp" -->
+<!--                 android:background="@drawable/shape_attendance_img_bottom" -->
+<!--                 android:gravity="center" -->
+<!--                 android:text="陈羽凡儿" -->
+<!--                 android:textColor="#202020" -->
+<!--                 android:textSize="10sp" /> -->
+            
+      <TextView
+               android:id="@+id/item_name1"
+                android:layout_width="47dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="-20dp"
+
+                android:gravity="center"
+                android:text="陈羽凡儿"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="#202020"
+                android:textSize="10sp"
+                android:focusableInTouchMode="true"
+               android:singleLine="true"
+               android:focusable="true"
+              android:ellipsize="marquee"
+               android:marqueeRepeatLimit="marquee_forever"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/total_day"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="总天数"
+            android:textColor="@color/tk_dark_gray"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/push_carded"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="已打卡"
+            android:textColor="@color/tk_dark_gray"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/ask_Leave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="请假"
+            android:textColor="@color/tk_dark_gray"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/absence"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="缺勤"
+            android:textColor="@color/tk_dark_gray"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/noabsence"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="出勤率"
+            android:textColor="@color/tk_dark_gray"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+  <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/line" />
+
+</LinearLayout>
