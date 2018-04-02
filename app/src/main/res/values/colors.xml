@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="recycler_swipe_color_text_gray">#FF777777</color>
+    <color name="recycler_swipe_color_loading_color1">#55777777</color>
+    <color name="recycler_swipe_color_loading_color2">#B1777777</color>
+    <color name="recycler_swipe_color_loading_color3">#FF777777</color>
+
+    <color name="page_color">#f0efed</color>
+
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_red">#FD4A2E</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
+
+    <color name="status_bar_fragment_mine">#3d3636</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_0a">#0a000000</color>
+    <color name="transparent_4c">#4c000000</color>
+    <color name="transparent_ee">#ffc1bcb6</color>
+    <color name="line">#c1bcb6</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="b_33">#333333</color>
+    <color name="b_80">#808080</color>
+    <color name="b_96">#969696</color>
+    <color name="b_99">#999999</color>
+    <color name="b_55">#555555</color>
+    <color name="b_d1">#d1d1d1</color>
+    <color name="b_fa">#fafafa</color>
+    <color name="brown">#a68537</color>
+
+    <color name="empty_data_bg">#fff0c9</color>
+
+    <color name="swipe_menu_gray">#9a9791</color>
+    <color name="swipe_menu_brown">#ffa015</color>
+    <color name="swipe_menu_red">#ff0400</color>
+    <color name="time_left_color">#F2B772</color>
+    <color name="province_line_border">#C7C7C7</color>
+    <color name="webview_progress">#3ccaff</color>
+</resources>
