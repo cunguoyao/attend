@@ -121,7 +121,7 @@ public class MainActivity extends BaseActivity {
                     transaction.add(R.id.content, mainMineFragment, MainMineFragment.class.getSimpleName());
                 }
                 StateBarTranslucentUtils.setStateBarColor(this, R.color.white);
-                StateBarTranslucentUtils.setStatusBarFontDark(this, false);
+                StateBarTranslucentUtils.setStatusBarFontDark(this, true);
                 currentFragment = mainMineFragment;
                 transaction.show(mainMineFragment);
                 break;
