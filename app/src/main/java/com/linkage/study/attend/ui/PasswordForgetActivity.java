@@ -91,78 +91,36 @@ public class PasswordForgetActivity extends BaseActivity implements View.OnClick
 
     private void sendSms() {
         showLoading();
-        RequestParams params = new RequestParams(Urls.api);
-        params.addParameter("mobile", username);
-        x.http().request(HttpMethod.POST, params, new HttpCallback(this) {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void success(String s) {
+            public void run() {
                 dismissLoading();
                 Toast.makeText(PasswordForgetActivity.this, "验证码发送成功", Toast.LENGTH_SHORT).show();
                 getCode.setEnabled(false);
                 timer.start();
             }
-
-            @Override
-            public void error(Throwable ex, String msg, boolean isOnCallback) {
-                dismissLoading();
-                if(ex != null)ex.printStackTrace();
-                LogUtil.e("---onError-----" + "onError");
-                Toast.makeText(PasswordForgetActivity.this, TextUtils.isEmpty(msg) ? "请求失败" : msg, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void cancel(CancelledException e) {
-
-            }
-        });
+        }, 1000);
     }
 
     private void verifyCode() {
         showLoading();
-        RequestParams params = new RequestParams(Urls.api);
-        params.addParameter("mobile", username);
-        params.addParameter("vcode", vCode);
-        x.http().request(HttpMethod.POST, params, new HttpCallback(this) {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void success(String s) {
+            public void run() {
                 dismissLoading();
-                JSONObject json = null;
-                String memberId = "", lostToken = "";
-                try {
-                    json = new JSONObject(s);
-                    JSONObject jsonUser = json.optJSONObject("data");
-                    memberId = jsonUser.optString("member_id");
-                    lostToken = jsonUser.optString("lost_token");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
                 Intent intent = new Intent(PasswordForgetActivity.this, PasswordModifyActivity.class);
-                intent.putExtra("username", username);
-                intent.putExtra("member_id", memberId);
-                intent.putExtra("lost_token", lostToken);
                 startActivity(intent);
-                finished();
+                finish();
             }
-
-            @Override
-            public void error(Throwable ex, String msg, boolean isOnCallback) {
-                dismissLoading();
-                if(ex != null)ex.printStackTrace();
-                LogUtil.e("---onError-----" + "onError");
-                Toast.makeText(PasswordForgetActivity.this, TextUtils.isEmpty(msg) ? "请求失败" : msg, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void cancel(CancelledException e) {
-
-            }
-        });
+        }, 1000);
     }
     
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.title_back:
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
                 finish();
                 break;
             case R.id.title_menu1:

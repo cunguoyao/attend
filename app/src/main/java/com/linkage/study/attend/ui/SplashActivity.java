@@ -30,12 +30,12 @@ public class SplashActivity extends BaseActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         x.view().inject(this);
-        mc = new MyCountDownTimer(2000, 1000);
+        mc = new MyCountDownTimer(1000, 1000);
         mc.start();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(SplashActivity.this, MainActivity.class);
+                Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

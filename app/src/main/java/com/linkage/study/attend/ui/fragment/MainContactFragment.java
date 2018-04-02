@@ -14,11 +14,11 @@ import org.xutils.x;
 /**
  * Created by cunguoyao on 2018/4/2.
  */
-@ContentView(R.layout.fragment_main_index)
-public class MainIndexFragment extends BaseFragment {
+@ContentView(R.layout.fragment_main_contact)
+public class MainContactFragment extends BaseFragment {
 
-    public static MainIndexFragment create() {
-        MainIndexFragment f = new MainIndexFragment();
+    public static MainContactFragment create() {
+        MainContactFragment f = new MainContactFragment();
         Bundle args = new Bundle();
         //args.putInt("type", type);
         f.setArguments(args);

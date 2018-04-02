@@ -66,10 +66,10 @@ public class PasswordModifyActivity extends BaseActivity implements View.OnClick
         username = intent.getStringExtra("username");
         lostToken = intent.getStringExtra("lost_token");
         memberId = intent.getStringExtra("member_id");
-        if(TextUtils.isEmpty(lostToken) || TextUtils.isEmpty(memberId)) {
+       /* if(TextUtils.isEmpty(lostToken) || TextUtils.isEmpty(memberId)) {
             finish();
             return;
-        }
+        }*/
         titleText.setText("修改密码");
         menuButton.setText("");
         handler.sendEmptyMessageDelayed(1, 200);
@@ -79,36 +79,18 @@ public class PasswordModifyActivity extends BaseActivity implements View.OnClick
     }
 
     private void modifyPwd() {
-        RequestParams params = new RequestParams(Urls.api);
-        params.addParameter("lost_token", lostToken);
-        params.addParameter("member_id", memberId);
-        params.addParameter("password", password);
-        x.http().request(HttpMethod.POST, params, new HttpCallback(this) {
+        showLoading();
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void success(String s) {
+            public void run() {
                 dismissLoading();
                 Toast.makeText(PasswordModifyActivity.this, "密码修改成功，请重新登录", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(PasswordModifyActivity.this, LoginActivity.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
-                finished();
+                finish();
             }
-
-            @Override
-            public void error(Throwable ex, String msg, boolean isOnCallback) {
-                dismissLoading();
-                if(ex != null)ex.printStackTrace();
-                LogUtil.e("---onError-----" + "onError");
-                Toast.makeText(PasswordModifyActivity.this, TextUtils.isEmpty(msg) ? "请求失败" : msg, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void cancel(CancelledException cex) {
-                dismissLoading();
-                LogUtil.e("---onCancelled-----" + "onCancelled");
-            }
-
-        });
+        }, 1000);
     }
     
     @Override
