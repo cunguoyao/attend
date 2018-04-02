@@ -67,7 +67,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         titleText.setText("登录");
-        menuButton.setText("注册");
+        //menuButton.setText("注册");
+        menuButton.setVisibility(View.INVISIBLE);
         handler.sendEmptyMessageDelayed(1, 200);
         mCbDisplayPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -94,72 +95,19 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     private void login() {
         showLoading();
-        RequestParams params = new RequestParams(Urls.api);
-        params.addParameter("uname", username);
-        params.addParameter("password", password);
-        x.http().request(HttpMethod.POST, params, new HttpCallback(this) {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void success(String s) {
+            public void run() {
                 dismissLoading();
-                try {
-                    //result = new String(result.getBytes("GB2312"), "utf-8");
-                    JSONObject json = new JSONObject(s);
-                    JSONObject jsonUser = json.optJSONObject("data");
-                    String memberId = jsonUser.optString("member_id");
-                    String status = jsonUser.optString("status");
-                    String token = jsonUser.optString("accesstoken");
-                    User user = BaseApplication.getInstance().getDbManager().selector(User.class)
-                            .where("id", "=", Long.valueOf(memberId)).findFirst();
-                    if(user == null) {
-                        user = new User();
-                        user.setId(Long.valueOf(memberId));
-                        user.setUsername(username);
-                        user.setPassword(password);
-                        user.setLastLoginTime(System.currentTimeMillis());
-                        if ("true".equals(status)) {
-                            user.setStatus(1);
-                        } else {
-                            user.setStatus(0);
-                        }
-                        user.setToken(token);
-                        user.setDefaultAccount(1);
-                        BaseApplication.getInstance().getDbManager().save(user);
-                    }else {
-                        user.setId(Long.valueOf(memberId));
-                        user.setUsername(username);
-                        user.setPassword(password);
-                        user.setLastLoginTime(System.currentTimeMillis());
-                        if ("true".equals(status)) {
-                            user.setStatus(1);
-                        } else {
-                            user.setStatus(0);
-                        }
-                        user.setToken(token);
-                        user.setDefaultAccount(1);
-                        BaseApplication.getInstance().getDbManager().saveOrUpdate(user);
-                    }
-                    //registerPush();
+                if(password.equals("1")) {
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
                     finish();
-                }catch (Exception e) {
-                    onError(e, true);
+                }else {
+                    Toast.makeText(LoginActivity.this, "用户名或密码不正确", Toast.LENGTH_SHORT).show();
                 }
             }
-
-            @Override
-            public void error(Throwable ex, String msg, boolean isOnCallback) {
-                dismissLoading();
-                if(ex != null)ex.printStackTrace();
-                LogUtil.e("---onError-----" + "onError");
-                Toast.makeText(LoginActivity.this, TextUtils.isEmpty(msg) ? "请求失败" : msg, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void cancel(CancelledException cex) {
-                dismissLoading();
-                LogUtil.e("---onCancelled-----" + "onCancelled");
-            }
-
-        });
+        }, 1000);
     }
     
     @Override
@@ -193,7 +141,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 username = usernameText.getText().toString();
                 intent2.putExtra("username", username);
                 startActivity(intent2);
-                finish();
                 break;
         }
     }
